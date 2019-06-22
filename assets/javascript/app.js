@@ -18,6 +18,7 @@ function displayGif() {
         for (var i = 0; i < results.length; i++) {
             // Creating a div to hold the gifs
             var gifDiv = $("<div>");
+            gifDiv.addClass("gif-container");
             // Creating an element to hold the rating
             var rating = results[i].rating;
             var p = $("<p>").text("Rating: " + rating);
@@ -32,8 +33,8 @@ function displayGif() {
             gifDiv.prepend(p);
             gifDiv.prepend(topicImage);
             $("#gif-view").prepend(gifDiv);
-            console.log("Rating: " + rating);
-            console.log("Gif div: " + gifDiv);
+            // console.log("Rating: " + rating);
+            // console.log("Gif div: " + gifDiv);
         }
 
         // Function to pause or animate the gif on click
