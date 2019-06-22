@@ -44,12 +44,12 @@ function displayGif() {
 
             if (state === "animate") {
                 $(this).attr("data-state", "still");
-                $(this).attr("src", $(this).attr("data-animate"));
+                $(this).attr("src", $(this).attr("data-still"));
             }
             else if (state === "still") {
                 $(this).attr("data-state", "animate");
                 console.log(this);
-                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("src", $(this).attr("data-animate"));
             }
         })
     })
