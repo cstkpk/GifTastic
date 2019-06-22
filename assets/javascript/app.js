@@ -4,7 +4,7 @@ var topics = ["tomatoes", "onions", "potatoes", "broccoli", "turnips", "peas", "
 function displayGif() {
     var topic = $(this).attr("data-name");
     console.log(this);
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=Bm2k4uF8suzONejSbumyYMcY72fyrkOP&limit=5";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=Bm2k4uF8suzONejSbumyYMcY72fyrkOP&limit=10";
 
     $.ajax({
         url: queryURL,
@@ -24,12 +24,34 @@ function displayGif() {
             // Creating an element to hold the gif image **(still)**
             var topicImage = $("<img>");
             topicImage.attr("src", results[i].images.fixed_height_still.url);
+            topicImage.attr("data-still", results[i].images.fixed_height_still.url);
+            topicImage.attr("data-animate", results[i].images.fixed_height.url);
+            topicImage.addClass("gif");
+            topicImage.attr("data-state", "still");
             // Prepending the results to the gif-view div
             gifDiv.prepend(p);
             gifDiv.prepend(topicImage);
             $("#gif-view").prepend(gifDiv);
+            console.log("Rating: " + rating);
+            console.log("Gif div: " + gifDiv);
         }
-      })
+
+        // Function to pause or animate the gif on click
+        $(".gif").on("click", function(){
+        
+            var state = $(this).attr("data-state");
+
+            if (state === "animate") {
+                $(this).attr("data-state", "still");
+                $(this).attr("src", $(this).attr("data-animate"));
+            }
+            else if (state === "still") {
+                $(this).attr("data-state", "animate");
+                console.log(this);
+                $(this).attr("src", $(this).attr("data-still"));
+            }
+        })
+    })
 }
 
 // Function to display buttons in the topics array
@@ -43,6 +65,7 @@ function renderButtons() {
         a.addClass("gif-btn");
         // Adding a data-name attribute
         a.attr("data-name", topics[i]);
+
         // Providing the initial button text
         a.text(topics[i]);
         // Adding the button to the render-buttons div
@@ -68,3 +91,18 @@ $("#add-topic").on("click", function(event) { // I changed this from the shortha
 // ***** Why can't I use the shorthand commented out below? If I do, it makes it so that it's selecting the whole document or something?
 // $(document).click(".gif-btn", displayGif); 
 $(document).on("click", ".gif-btn", displayGif);
+
+// Function to pause or animate the gif on click
+// $(".gif-btn").on("click", function(){
+    
+//     var state = $(this).attr("data-state");
+
+//     if (state === "animate") {
+//         $(this).attr("data-state", "still");
+//         $(this).attr("src", results[i].images.fixed_height_still.url);
+//     }
+//     else if (state === "still") {
+//         $(this).attr("data-state", "animate");
+//         $(this).attr("src", results[i].images.fixed_height.url);
+//     }
+// })
