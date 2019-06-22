@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Add style.css here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <title>Giftastic</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mt-2 text-center">GIPHY Search!</h1>
+            </div>
+        </div>
+
+        <!-- Rendered buttons will display here -->
+        <div class="row">
+            <div class="col-12">
+                <div id="rendered-buttons"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Gifs will display here -->
+            <div class="col-md-8">
+                <div id="gif-view"></div>
+            </div>
+            <div class="col-md-4">
+                <!-- Search form for user input -->
+                <form id="topic-form">
+                    <label for="topic-input">Add a topic here: </label>
+                    <input type="text" id="topic-input">
+                    <br>
+                    <!-- Button triggers new topic to be added -->
+                    <input id="add-topic" type="submit" value="Search">
+                </form>
+            </div>
+        </div>
+        
+
+
+
+
+    </div>
+
+    <script src="assets/javascript/app.js"></script>
+
+</body>
+
+</html>
