@@ -1,14 +1,15 @@
 var topics = ["tomatoes", "onions", "potatoes", "broccoli", "turnips", "peas", "carrots"];
 
+// Function to display the gifs 
 function displayGif() {
     var topic = $(this).attr("data-name");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=5";
+    console.log(this);
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=Bm2k4uF8suzONejSbumyYMcY72fyrkOP&limit=5";
 
     $.ajax({
         url: queryURL,
         method: "GET"
       }).then(function(response) {
-        console.log(response);
         // Creating a variable to hold response.data
         var results = response.data;
         console.log(results);
@@ -53,7 +54,7 @@ function renderButtons() {
 renderButtons();
 
 // Function to handles events when a topics button is clicked
-$("#add-topic").click(function(event) {
+$("#add-topic").on("click", function(event) { // I changed this from the shorthand because of the issue described below
     event.preventDefault();
     // Grabbing the input from the textbox
     var topic = $("#topic-input").val();
@@ -64,4 +65,6 @@ $("#add-topic").click(function(event) {
 });
 
 // Adding a click event listener to all elements with a class of "gif-btn" and calling displayGif function
-$(document).click(".gif-btn", displayGif);
+// ***** Why can't I use the shorthand commented out below? If I do, it makes it so that it's selecting the whole document or something?
+// $(document).click(".gif-btn", displayGif); 
+$(document).on("click", ".gif-btn", displayGif);
