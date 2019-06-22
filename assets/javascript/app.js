@@ -1,4 +1,4 @@
-var topics = ["tomatoes", "onions", "potatoes", "broccoli", "turnips", "peas", "carrots"];
+var topics = ["tomato", "onion", "potato", "broccoli", "turnip", "peas", "carrot", "lettuce", "cabbage", "pepper"];
 
 // Function to display the gifs 
 function displayGif() {
@@ -66,9 +66,10 @@ function renderButtons() {
         a.addClass("gif-btn");
         // Adding a data-name attribute
         a.attr("data-name", topics[i]);
-
         // Providing the initial button text
         a.text(topics[i]);
+        // Styling the buttons
+        a.addClass("btn btn-light mr-1 mb-1");
         // Adding the button to the render-buttons div
         $("#rendered-buttons").append(a);
     }

@@ -1,4 +1,12 @@
+#rendered-buttons {
+    /* margin-bottom: 5px; */
+}
+
 .gif-container {
     float: left;
     margin: 10px;
+}
+
+#add-topic {
+    margin-top: 5px;
 }
