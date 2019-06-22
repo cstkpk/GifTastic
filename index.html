@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
@@ -16,7 +17,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <h1 class="mt-2 text-center">GIPHY Search!</h1>
+                <h1 id="test" class="mt-2 text-center">GIPHY Search!</h1>
             </div>
         </div>
 
@@ -27,23 +28,30 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row main-content">
             <!-- Gifs will display here -->
-            <div class="col-md-9">
+            <div class="col-md-9 item1">
                 <div id="gif-view"></div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 item2">
                 <!-- Search form for user input -->
                 <form id="topic-form">
-                    <label for="topic-input">Add a topic here: </label>
+                    <label for="topic-input">Add a vegetable: </label>
                     <input type="text" id="topic-input">
                     <br>
                     <!-- Button triggers new topic to be added -->
-                    <input id="add-topic" type="submit" value="Search">
+                    <input id="add-topic" class="btn btn-secondary" type="submit" value="Search">
                 </form>
             </div>
         </div>
-        
+
+        <!-- Div to display favorite gifs -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 id="favorites-h1" class="mt-2 text-center">Favorites:</h1>
+                <div id="favorites"></div>
+            </div>
+        </div>
 
 
 

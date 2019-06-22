@@ -1,10 +1,15 @@
+// When the page loads, hide the favorites h1 element
+$(document).ready(function() {
+    $("#favorites-h1").hide();
+
+// Array of initial topics
 var topics = ["tomato", "onion", "potato", "broccoli", "turnip", "peas", "carrot", "lettuce", "cabbage", "pepper"];
 
 // Function to display the gifs 
 function displayGif() {
     var topic = $(this).attr("data-name");
     console.log(this);
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=Bm2k4uF8suzONejSbumyYMcY72fyrkOP&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
 
     $.ajax({
         url: queryURL,
@@ -21,7 +26,7 @@ function displayGif() {
             gifDiv.addClass("gif-container");
             // Creating an element to hold the rating
             var rating = results[i].rating;
-            var p = $("<p>").text("Rating: " + rating);
+            var p1 = $("<p>").text("Rating: " + rating);
             // Creating an element to hold the gif image **(still)**
             var topicImage = $("<img>");
             topicImage.attr("src", results[i].images.fixed_height_still.url);
@@ -30,12 +35,17 @@ function displayGif() {
             topicImage.addClass("gif");
             topicImage.attr("data-state", "still");
             // Prepending the results to the gif-view div
-            gifDiv.prepend(p);
+            gifDiv.prepend(p1);
             gifDiv.prepend(topicImage);
             $("#gif-view").prepend(gifDiv);
-            // console.log("Rating: " + rating);
             // console.log("Gif div: " + gifDiv);
         }
+
+        // Double click function to save a gif to favorites
+        $(".gif").on("dblclick", function() {
+            $("#favorites-h1").show();
+            $("#favorites").append(gifDiv);
+        })
 
         // Function to pause or animate the gif on click
         $(".gif").on("click", function(){
@@ -94,17 +104,19 @@ $("#add-topic").on("click", function(event) { // I changed this from the shortha
 // $(document).click(".gif-btn", displayGif); 
 $(document).on("click", ".gif-btn", displayGif);
 
-// Function to pause or animate the gif on click
-// $(".gif-btn").on("click", function(){
-    
-//     var state = $(this).attr("data-state");
+// Function to move a gif to the favorites section upon double-click
+// $(".gif").mouseover(function() {
 
-//     if (state === "animate") {
-//         $(this).attr("data-state", "still");
-//         $(this).attr("src", results[i].images.fixed_height_still.url);
-//     }
-//     else if (state === "still") {
-//         $(this).attr("data-state", "animate");
-//         $(this).attr("src", results[i].images.fixed_height.url);
-//     }
 // })
+
+// $(".test-click").on("dblclick", function() {
+//     $(".gif-container").prepend("#favorites");
+//     console.log("double click");
+//     alert("Double click!");
+// })
+
+// $(".gif").on("click", function() {
+//     alert("I've been clicked!");
+// })
+
+});

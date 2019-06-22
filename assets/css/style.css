@@ -25,3 +25,19 @@ h1 {
 #add-topic {
     margin-top: 5px;
 }
+
+/* Media tag for phone */
+@media screen and (max-width: 980px) {
+
+.main-content {
+    flex-direction: column;
+} 
+.item1 {
+    order: 2;
+}   
+.item2 {
+    order: 1;
+    margin-top: 10px;
+}
+
+}
