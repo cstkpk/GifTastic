@@ -1,12 +1,27 @@
-#rendered-buttons {
-    /* margin-bottom: 5px; */
+body {
+    background-color: rgb(236, 236, 236);
+    color: #222;
+    font-family: 'Roboto', sans-serif;
+
 }
 
+h1 {
+    background-color: #222;
+    padding: 10px 0px;
+    color: rgb(236, 236, 236);
+}
+
+/* Styling the largest GIF div */
+#gif-view {
+    margin-top: 20px;
+}
+ /* Styling the individual GIF containers */
 .gif-container {
     float: left;
     margin: 10px;
 }
 
+/* Styling the input search box */
 #add-topic {
     margin-top: 5px;
 }

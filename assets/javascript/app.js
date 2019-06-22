@@ -69,7 +69,7 @@ function renderButtons() {
         // Providing the initial button text
         a.text(topics[i]);
         // Styling the buttons
-        a.addClass("btn btn-light mr-1 mb-1");
+        a.addClass("btn btn-outline-secondary mr-1 mb-1");
         // Adding the button to the render-buttons div
         $("#rendered-buttons").append(a);
     }
