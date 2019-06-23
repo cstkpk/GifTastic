@@ -42,9 +42,11 @@ function displayGif() {
         }
 
         // Double click function to save a gif to favorites
-        $(".gif").on("dblclick", function() {
+        $(".gif-container").on("dblclick", function() {
             $("#favorites-h1").show();
-            $("#favorites").append(gifDiv);
+            $("#favorites").append(this); 
+            console.log("This: " + this);
+            console.log("gifDiv: " + gifDiv);
         })
 
         // Function to pause or animate the gif on click
