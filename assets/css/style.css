@@ -9,6 +9,7 @@ h1 {
     background-color: #222;
     padding: 10px 0px;
     color: rgb(236, 236, 236);
+    min-height: 65px;
 }
 
 /* Styling the largest GIF div */
@@ -26,7 +27,21 @@ h1 {
     margin-top: 5px;
 }
 
-/* Media tag for phone */
+/* Styling the overlay text that appears on hover */
+.text-overlay {
+    display: none;
+    background: rgb(236, 236, 236, 0.7);
+    position: absolute;
+    padding: 5px;
+    /* font-size: 14px; */
+}
+
+/* Styling the favorites h1 element to be slightly lighter than the main h1 element */
+#favorites-h1 {
+    background-color: #555
+}
+
+/* Media tag desktop */
 @media screen and (max-width: 980px) {
 
 .main-content {

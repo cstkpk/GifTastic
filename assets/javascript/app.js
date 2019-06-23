@@ -1,6 +1,7 @@
 // When the page loads, hide the favorites h1 element
 $(document).ready(function() {
     $("#favorites-h1").hide();
+    // $(".text-overlay").hide();
 
 // Array of initial topics
 var topics = ["tomato", "onion", "potato", "broccoli", "turnip", "peas", "carrot", "lettuce", "cabbage", "pepper"];
@@ -9,7 +10,7 @@ var topics = ["tomato", "onion", "potato", "broccoli", "turnip", "peas", "carrot
 function displayGif() {
     var topic = $(this).attr("data-name");
     console.log(this);
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10&rating=G";
 
     $.ajax({
         url: queryURL,
@@ -34,6 +35,7 @@ function displayGif() {
             topicImage.attr("data-animate", results[i].images.fixed_height.url);
             topicImage.addClass("gif");
             topicImage.attr("data-state", "still");
+
             // Prepending the results to the gif-view div
             gifDiv.prepend(p1);
             gifDiv.prepend(topicImage);
@@ -45,8 +47,8 @@ function displayGif() {
         $(".gif-container").on("dblclick", function() {
             $("#favorites-h1").show();
             $("#favorites").append(this); 
-            console.log("This: " + this);
-            console.log("gifDiv: " + gifDiv);
+            // console.log("This: " + this);
+            // console.log("gifDiv: " + gifDiv);
         })
 
         // Function to pause or animate the gif on click
@@ -63,6 +65,13 @@ function displayGif() {
                 console.log(this);
                 $(this).attr("src", $(this).attr("data-animate"));
             }
+        })
+
+        // Function to add text overlay to gif on hover
+        $(".gif").hover(function(){
+            $(".text-overlay").show().offset($(this).offset());
+            }, function() {
+                $(".text-overlay").hide();
         })
     })
 }
@@ -106,19 +115,9 @@ $("#add-topic").on("click", function(event) { // I changed this from the shortha
 // $(document).click(".gif-btn", displayGif); 
 $(document).on("click", ".gif-btn", displayGif);
 
-// Function to move a gif to the favorites section upon double-click
-// $(".gif").mouseover(function() {
-
+// $(".gif-container").hover(function(){
+//     $(this).css("background-color", "pink");
 // })
 
-// $(".test-click").on("dblclick", function() {
-//     $(".gif-container").prepend("#favorites");
-//     console.log("double click");
-//     alert("Double click!");
-// })
-
-// $(".gif").on("click", function() {
-//     alert("I've been clicked!");
-// })
 
 });
