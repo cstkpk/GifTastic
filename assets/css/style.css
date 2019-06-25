@@ -33,7 +33,8 @@ h1 {
     background: rgb(236, 236, 236, 0.7);
     position: absolute;
     padding: 5px;
-    /* font-size: 14px; */
+    font-size: 14px;
+    max-width: 100%;
 }
 
 /* Styling the favorites h1 element to be slightly lighter than the main h1 element */

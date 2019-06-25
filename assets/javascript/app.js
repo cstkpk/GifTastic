@@ -24,7 +24,7 @@ function displayGif() {
         for (var i = 0; i < results.length; i++) {
             // Creating a div to hold the gifs
             var gifDiv = $("<div>");
-            gifDiv.addClass("gif-container");
+            gifDiv.addClass("gif-container card");
             // Creating an element to hold the rating
             var rating = results[i].rating;
             var p1 = $("<p>").text("Rating: " + rating);
@@ -43,36 +43,36 @@ function displayGif() {
             // console.log("Gif div: " + gifDiv);
         }
 
-        // Double click function to save a gif to favorites
-        $(".gif-container").on("dblclick", function() {
-            $("#favorites-h1").show();
-            $("#favorites").append(this); 
-            // console.log("This: " + this);
-            // console.log("gifDiv: " + gifDiv);
-        })
+        // // Double click function to save a gif to favorites
+        // $(".gif-container").on("dblclick", function() {
+        //     $("#favorites-h1").show();
+        //     $("#favorites").append(this); 
+        //     // console.log("This: " + this);
+        //     // console.log("gifDiv: " + gifDiv);
+        // })
 
-        // Function to pause or animate the gif on click
-        $(".gif").on("click", function(){
+        // // Function to pause or animate the gif on click
+        // $(".gif").on("click", function(){
         
-            var state = $(this).attr("data-state");
+        //     var state = $(this).attr("data-state");
 
-            if (state === "animate") {
-                $(this).attr("data-state", "still");
-                $(this).attr("src", $(this).attr("data-still"));
-            }
-            else if (state === "still") {
-                $(this).attr("data-state", "animate");
-                console.log(this);
-                $(this).attr("src", $(this).attr("data-animate"));
-            }
-        })
+        //     if (state === "animate") {
+        //         $(this).attr("data-state", "still");
+        //         $(this).attr("src", $(this).attr("data-still"));
+        //     }
+        //     else if (state === "still") {
+        //         $(this).attr("data-state", "animate");
+        //         console.log(this);
+        //         $(this).attr("src", $(this).attr("data-animate"));
+        //     }
+        // })
 
-        // Function to add text overlay to gif on hover
-        $(".gif").hover(function(){
-            $(".text-overlay").show().offset($(this).offset());
-            }, function() {
-                $(".text-overlay").hide();
-        })
+        // // Function to add text overlay to gif on hover
+        // $(".gif").hover(function(){
+        //     $(".text-overlay").show().offset($(this).offset());
+        //     }, function() {
+        //         $(".text-overlay").hide();
+        // })
     })
 }
 
@@ -115,9 +115,44 @@ $("#add-topic").on("click", function(event) { // I changed this from the shortha
 // $(document).click(".gif-btn", displayGif); 
 $(document).on("click", ".gif-btn", displayGif);
 
-// $(".gif-container").hover(function(){
-//     $(this).css("background-color", "pink");
+// Double click function to save a gif to favorites
+$(document).on("dblclick", ".gif-container", function() {
+    $("#favorites-h1").show();
+    $("#favorites").append(this); 
+    // console.log("This: " + this);
+    // console.log("gifDiv: " + gifDiv);
+})
+
+// Function to pause or animate the gif on click
+$(document).on("click", ".gif", function(){
+
+    var state = $(this).attr("data-state");
+
+    if (state === "animate") {
+        $(this).attr("data-state", "still");
+        $(this).attr("src", $(this).attr("data-still"));
+    }
+    else if (state === "still") {
+        $(this).attr("data-state", "animate");
+        console.log(this);
+        $(this).attr("src", $(this).attr("data-animate"));
+    }
+})
+
+// Function to add text overlay to gif on hover
+// $(document).on(function(){
+//     $(".text-overlay").show().offset($(this).offset());
+//     }, function() {
+//         $(".text-overlay").hide();
 // })
 
+$(document).on({
+    mouseenter: function () {
+        $(".text-overlay").show().offset($(this).offset());
+    },
+    mouseleave: function () {
+        $(".text-overlay").hide();
+    }
+ }, ".gif");
 
 });
