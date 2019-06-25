@@ -4,7 +4,7 @@ $(document).ready(function() {
     // $(".text-overlay").hide();
 
 // Array of initial topics
-var topics = ["tomato", "onion", "potato", "broccoli", "turnip", "peas", "carrot", "lettuce", "cabbage", "pepper"];
+var topics = ["tomato", "onion", "potato", "broccoli", "turnip", "peas", "carrot", "lettuce", "cabbage", "parsnip"];
 
 // Function to display the gifs 
 function displayGif() {
