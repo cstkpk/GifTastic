@@ -24,7 +24,7 @@ function displayGif() {
         for (var i = 0; i < results.length; i++) {
             // Creating a div to hold the gifs
             var gifDiv = $("<div>");
-            gifDiv.addClass("gif-container card");
+            gifDiv.addClass("gif-container");
             // Creating an element to hold the rating
             var rating = results[i].rating;
             var p1 = $("<p>").text("Rating: " + rating);
@@ -33,7 +33,7 @@ function displayGif() {
             topicImage.attr("src", results[i].images.fixed_height_still.url);
             topicImage.attr("data-still", results[i].images.fixed_height_still.url);
             topicImage.attr("data-animate", results[i].images.fixed_height.url);
-            topicImage.addClass("gif");
+            topicImage.addClass("gif card-img");
             topicImage.attr("data-state", "still");
 
             // Prepending the results to the gif-view div
@@ -42,37 +42,6 @@ function displayGif() {
             $("#gif-view").prepend(gifDiv);
             // console.log("Gif div: " + gifDiv);
         }
-
-        // // Double click function to save a gif to favorites
-        // $(".gif-container").on("dblclick", function() {
-        //     $("#favorites-h1").show();
-        //     $("#favorites").append(this); 
-        //     // console.log("This: " + this);
-        //     // console.log("gifDiv: " + gifDiv);
-        // })
-
-        // // Function to pause or animate the gif on click
-        // $(".gif").on("click", function(){
-        
-        //     var state = $(this).attr("data-state");
-
-        //     if (state === "animate") {
-        //         $(this).attr("data-state", "still");
-        //         $(this).attr("src", $(this).attr("data-still"));
-        //     }
-        //     else if (state === "still") {
-        //         $(this).attr("data-state", "animate");
-        //         console.log(this);
-        //         $(this).attr("src", $(this).attr("data-animate"));
-        //     }
-        // })
-
-        // // Function to add text overlay to gif on hover
-        // $(".gif").hover(function(){
-        //     $(".text-overlay").show().offset($(this).offset());
-        //     }, function() {
-        //         $(".text-overlay").hide();
-        // })
     })
 }
 
@@ -111,8 +80,6 @@ $("#add-topic").on("click", function(event) { // I changed this from the shortha
 });
 
 // Adding a click event listener to all elements with a class of "gif-btn" and calling displayGif function
-// ***** Why can't I use the shorthand commented out below? If I do, it makes it so that it's selecting the whole document or something?
-// $(document).click(".gif-btn", displayGif); 
 $(document).on("click", ".gif-btn", displayGif);
 
 // Double click function to save a gif to favorites
@@ -146,6 +113,7 @@ $(document).on("click", ".gif", function(){
 //         $(".text-overlay").hide();
 // })
 
+// Function to add text overlay to gif on hover
 $(document).on({
     mouseenter: function () {
         $(".text-overlay").show().offset($(this).offset());
