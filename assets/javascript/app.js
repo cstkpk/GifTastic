@@ -10,7 +10,7 @@ var topics = ["tomato", "onion", "potato", "broccoli", "turnip", "peas", "carrot
 function displayGif() {
     var topic = $(this).attr("data-name");
     console.log(this);
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10&rating=G";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=Bm2k4uF8suzONejSbumyYMcY72fyrkOP&limit=10&rating=G";
 
     $.ajax({
         url: queryURL,
