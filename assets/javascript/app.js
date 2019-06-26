@@ -69,7 +69,7 @@ function renderButtons() {
 renderButtons();
 
 // Function to handles events when a topics button is clicked
-$("#add-topic").on("click", function(event) { // I changed this from the shorthand because of the issue described below
+$("#add-topic").on("click", function(event) { 
     event.preventDefault();
     // Grabbing the input from the textbox
     var topic = $("#topic-input").val();
@@ -77,6 +77,8 @@ $("#add-topic").on("click", function(event) { // I changed this from the shortha
     topics.push(topic);
     // Calling renderButtons to display the newly created button
     renderButtons();
+    // Clearing textbox
+    $("#topic-input").val("");
 });
 
 // Adding a click event listener to all elements with a class of "gif-btn" and calling displayGif function
