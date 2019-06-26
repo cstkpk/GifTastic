@@ -1,7 +1,6 @@
 // When the page loads, hide the favorites h1 element
 $(document).ready(function() {
     $("#favorites-h1").hide();
-    // $(".text-overlay").hide();
 
 // Array of initial topics
 var topics = ["tomato", "onion", "potato", "broccoli", "turnip", "peas", "carrot", "lettuce", "cabbage", "parsnip"];
@@ -105,13 +104,6 @@ $(document).on("click", ".gif", function(){
         $(this).attr("src", $(this).attr("data-animate"));
     }
 })
-
-// Function to add text overlay to gif on hover
-// $(document).on(function(){
-//     $(".text-overlay").show().offset($(this).offset());
-//     }, function() {
-//         $(".text-overlay").hide();
-// })
 
 // Function to add text overlay to gif on hover
 $(document).on({
