@@ -88,8 +88,6 @@ $(document).on("click", ".gif-btn", displayGif);
 $(document).on("dblclick", ".gif-container", function() {
     $("#favorites-h1").show();
     $("#favorites").append(this); 
-    // console.log("This: " + this);
-    // console.log("gifDiv: " + gifDiv);
 })
 
 // Function to pause or animate the gif on click
@@ -124,5 +122,7 @@ $(document).on({
         $(".text-overlay").hide();
     }
  }, ".gif");
+
+
 
 });
